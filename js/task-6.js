@@ -21,17 +21,19 @@ const inputSomeNumber = () => {
 
   function createBoxes(amount) {
     destroyBoxes();
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < amount; i++) {
+      const newElementItem = document.createElement(`div`);
+      const everyIteration = 30 + i * 10;
+      newElementItem.style.width = `${everyIteration}px`;
+      newElementItem.style.height = `${everyIteration}px`;
+      newElementItem.style.backgroundColor = getRandomHexColor();
+      
+      fragment.append(newElementItem);
+     
+    }
 
-      for (let i = 0; i < amount; i++) {
-        const newElementItem = document.createElement(`div`);
-        const everyIteration = 30 + i * 10;
-        newElementItem.style.width = `${everyIteration}px`;
-        newElementItem.style.height = `${everyIteration}px`;
-        newElementItem.style.backgroundColor = getRandomHexColor();
-        
-      boxes.append(newElementItem);
-        //console.dir(boxes);
-      }
+    boxes.append(fragment);
   }
   
   function destroyBoxes() {
